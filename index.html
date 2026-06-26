@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snart GIS Portfolio | Shedrack Nzogela</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f7f9;color:#1a2a3a;line-height:1.6}
+header{background:linear-gradient(135deg,#0f4c5c,#1d7874);color:#fff;padding:60px 20px;text-align:center;position:relative;overflow:hidden}
+header h1{font-size:2.8rem;animation:slideDown 1s ease-out}
+header p{font-size:1.2rem;opacity:.9;animation:fadeIn 1.5s ease-out}
+@keyframes slideDown{from{transform:translateY(-50px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.container{width:90%;max-width:1200px;margin:auto}
+section{padding:50px 0}
+h2{color:#0f4c5c;font-size:2rem;margin-bottom:1.5rem;border-left:5px solid #1d7874;padding-left:15px}
+.btn{display:inline-block;background:#ffb347;color:#1a2a3a;padding:12px 28px;border-radius:30px;margin-top:15px;font-weight:700;transition:all .3s ease;border:none;cursor:pointer;text-decoration:none}
+.btn:hover{transform:scale(1.05);background:#ff9f1c;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.card{background:#fff;padding:25px;border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,.08);transition:all .4s cubic-bezier(.25,.46,.45,.94);cursor:pointer;border:1px solid #e8edf2;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(29,120,116,.03),rgba(15,76,92,.03));opacity:0;transition:opacity .4s ease}
+.card:hover{transform:translateY(-10px) scale(1.01);box-shadow:0 20px 40px rgba(15,76,92,.15);border-color:#1d7874}
+.card:hover::before{opacity:1}
+.card h3{color:#0f4c5c;font-size:1.3rem;margin-bottom:10px;position:relative;z-index:1}
+.card p{color:#3d4f5e;position:relative;z-index:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+.skills span{display:inline-block;background:#1d7874;color:#fff;padding:8px 16px;border-radius:30px;margin:5px;transition:all .3s ease;cursor:default;font-weight:500}
+.skills span:hover{transform:scale(1.08) rotate(-2deg);background:#0f4c5c}
+.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:1000;justify-content:center;align-items:center;padding:20px;animation:fadeIn .3s ease}
+.overlay.active{display:flex}
+.overlay-content{background:#fff;max-width:900px;max-height:85vh;overflow-y:auto;padding:40px;border-radius:24px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.3);animation:slideUp .4s ease-out}
+@keyframes slideUp{from{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}
+.overlay-content .close-btn{position:sticky;top:0;float:right;background:#e74c3c;color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:1.5rem;cursor:pointer;transition:all .3s ease;z-index:10}
+.overlay-content .close-btn:hover{transform:rotate(90deg) scale(1.1)}
+.overlay-content h2{color:#0f4c5c;margin-top:0;border-left:5px solid #1d7874;padding-left:15px}
+.overlay-content p{color:#2a3f4f;line-height:1.8;margin:15px 0}
+.overlay-content .badge{display:inline-block;background:#1d7874;color:#fff;padding:4px 14px;border-radius:20px;font-size:.8rem;margin:3px 5px 3px 0}
+.overlay-img-grid{display:flex;flex-wrap:wrap;gap:15px;margin:20px 0;justify-content:center}
+.overlay-img-grid figure{background:#f8fafc;padding:10px;border-radius:12px;border:1px solid #e2e8f0;max-width:280px;text-align:center;flex:1 1 auto}
+.overlay-img-grid figure img{width:100%;height:auto;border-radius:8px;max-height:220px;object-fit:cover}
+.overlay-img-grid figure figcaption{font-size:.85rem;color:#2c5282;margin-top:8px;font-weight:500}
+.data-table{width:100%;border-collapse:collapse;margin:15px 0;font-size:.95rem}
+.data-table th{background:#0f4c5c;color:#fff;padding:10px;text-align:left}
+.data-table td{padding:10px;border-bottom:1px solid #e2e8f0}
+.data-table tr:nth-child(even){background:#f7fafc}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+.contact-item{background:#fff;padding:15px 20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:all .3s ease}
+.contact-item:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(15,76,92,.12)}
+.contact-item i{color:#1d7874;width:25px}
+.contact-item a{color:#0f4c5c;text-decoration:none;font-weight:500}
+.contact-item a:hover{color:#1d7874;text-decoration:underline}
+footer{background:#0f4c5c;color:#fff;text-align:center;padding:30px 20px}
+footer p{margin:5px 0}
+@media(max-width:600px){header h1{font-size:2rem}.overlay-content{padding:25px;margin:10px}.grid{grid-template-columns:1fr}.overlay-img-grid figure{max-width:100%}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Shedrack Nzogela</h1>
+  <p>Municipal & Industrial Engineer | GIS Specialist | Sustainability Professional</p>
+  <p><i class="fas fa-map-pin"></i> Dar es Salaam, Tanzania</p>
+  <a class="btn" href="https://www.youtube.com/@ShedrackNzogela" target="_blank"><i class="fab fa-youtube"></i> Visit YouTube Channel</a>
+</header>
+
+<section class="container">
+  <h2><i class="fas fa-user-circle"></i> About Me</h2>
+  <div class="card" style="cursor:default;">
+    <p><strong>Graduate Engineer (BSc. Municipal & Industrial Services Engineering, Ardhi University)</strong> with hands-on experience in industrial process control, biochar production, water and wastewater system design, construction supervision, and technical documentation. Strong background in sustainable infrastructure, carbon systems, and engineering design with practical exposure across manufacturing, utilities, and consulting environments.</p>
+    <p>I am the founder of <strong>Snart-Eco</strong>, focused on eco-industrial parks and industrial symbiosis, and <strong>PDEL</strong>, a construction and engineering company. My interests include circular economy systems, Life Cycle Assessment (LCA), climate resilience, carbon sequestration, and sustainable infrastructure development.</p>
+  </div>
+</section>
+
+<section class="container">
+  <h2><i class="fas fa-cogs"></i> Core Competencies</h2>
+  <div class="skills">
+    <span>Municipal & Industrial Engineer</span>
+    <span>GIS Specialist (QGIS, ArcGIS)</span>
+    <span>Carbon Sequestration Practitioner</span>
+    <span>Life Cycle Assessment (LCA)</span>
+    <span>Water & Wastewater Engineer</span>
+    <span>Industrial Process Control (PLC)</span>
+    <span>HSSE & EHS Management</span>
+    <span>AutoCAD & Revit</span>
+    <span>SuperPro Designer / Aspen Plus</span>
+    <span>Carbon Accounting & MRV</span>
+    <span>Sustainability & Circular Economy</span>
+    <span>Technical Documentation & BOQ</span>
+  </div>
+</section>
+
+<section class="container">
+  <h2><i class="fas fa-project-diagram"></i> Featured Projects <span style="font-size:1rem;color:#1d7874;font-weight:400;">(Click any card)</span></h2>
+  <div class="grid" id="projectGrid">
+    <div class="card project-card" data-project="0">
+      <h3><i class="fas fa-water"></i> LULC & Water Quality in Ghana</h3>
+      <p>Land Use and Land Cover Change Dynamics and Their Influence on Surface Water Temperature and Chlorophyll‑a in Small Irrigation Reservoirs of Northern Ghana</p>
+      <span style="display:inline-block;margin-top:10px;color:#1d7874;font-weight:500;"><i class="fas fa-arrow-right"></i> Click to read more</span>
+    </div>
+    <div class="card project-card" data-project="1">
+      <h3><i class="fas fa-flood"></i> Flood Hazard Assessment</h3>
+      <p>Flood Hazard Assessment and Community Coping Strategies in Sagnarigu Municipality, Northern Ghana</p>
+      <span style="display:inline-block;margin-top:10px;color:#1d7874;font-weight:500;"><i class="fas fa-arrow-right"></i> Click to read more</span>
+    </div>
+    <div class="card project-card" data-project="2">
+      <h3><i class="fas fa-industry"></i> Snart-Eco Industrial Symbiosis</h3>
+      <p>Development of eco-industrial park concepts integrating resource efficiency, circular economy, and sustainability principles.</p>
+      <span style="display:inline-block;margin-top:10px;color:#1d7874;font-weight:500;"><i class="fas fa-arrow-right"></i> Click to read more</span>
+    </div>
+    <div class="card project-card" data-project="3">
+      <h3><i class="fas fa-tint"></i> Water & Wastewater Systems</h3>
+      <p>Engineering design and planning of municipal and industrial water and wastewater infrastructure.</p>
+      <span style="display:inline-block;margin-top:10px;color:#1d7874;font-weight:500;"><i class="fas fa-arrow-right"></i> Click to read more</span>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h2><i class="fas fa-address-card"></i> Professional Profiles</h2>
+  <div class="contact-grid">
+    <div class="contact-item"><i class="fab fa-youtube"></i> <a href="https://www.youtube.com/@ShedrackNzogela" target="_blank">YouTube Channel</a></div>
+    <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:shedracknzogela@gmail.com">shedracknzogela@gmail.com</a></div>
+    <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:snartnzogela@gmail.com">snartnzogela@gmail.com</a></div>
+    <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:nicholausnzogela@gmail.com">nicholausnzogela@gmail.com</a></div>
+    <div class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+255713424350">+255 713 424 350</a></div>
+    <div class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+255626011993">+255 626 011 993</a></div>
+    <div class="contact-item"><i class="fas fa-location-dot"></i> Dar es Salaam, Tanzania</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Snart GIS Portfolio | Shedrack Nzogela</p>
+  <p>GIS • Engineering • Sustainability • Innovation</p>
+</footer>
+
+<div class="overlay" id="projectOverlay">
+  <div class="overlay-content">
+    <button class="close-btn" id="closeOverlay">&times;</button>
+    <div id="overlayBody"></div>
+  </div>
+</div>
+
+<script>
+const projects = [
+  {
+    title: "Land Use and Land Cover Change Dynamics and Their Influence on Surface Water Temperature and Chlorophyll‑a in Small Irrigation Reservoirs of Northern Ghana",
+    description: "This study assessed the influence of 25 years of land use and land cover (LULC) change on surface water temperature and chlorophyll‑a dynamics in the Golinga and Botanga irrigation reservoirs of northern Ghana, using an integrated approach combining Landsat and Sentinel‑2 satellite imagery, GIS, and statistical analysis.",
+    images: [
+      { src: "Picture2.png", caption: "LULC Time-Series (2000-2025) – Bontanga Reservoir" },
+      { src: "Picture1.png", caption: "Riparian Vegetation Change – 50m & 100m Buffers" },
+      { src: "Picture3.png", caption: "Surface Water Temperature Trends (SWT)" }
+    ],
+    details: [
+      "Cropland expanded from near zero to 34.7% (Golinga) and from 1.3% to 28.9% (Botanga) between 2000 and 2024",
+      "Woodland declined by 36.8% and 34.4% respectively",
+      "Riparian vegetation within 50m buffers decreased by over 34‑41%",
+      "Surface water temperatures warmed by +0.28‑0.29°C per decade",
+      "Chlorophyll‑a (CI₁ index) rose from ~0.12 in 2017 to ~0.35‑0.39 in 2024",
+      "LULC predictors explained 74‑88% of water quality variance",
+      "Cropland correlated positively with temperature and chlorophyll (r = +0.78‑0.88)",
+      "Woodland and riparian vegetation correlated negatively (r = -0.76‑0.86)",
+      "Seasonal analysis revealed higher temperatures (by 3.3°C) and chlorophyll (by 50‑60%) during dry season",
+      "Persistent chlorophyll hotspots covered 25‑35% of reservoir surfaces near inflow zones and agricultural areas"
+    ],
+    tags: ["LULC","Remote Sensing","Water Quality","Ghana","Eutrophication","Landsat","Sentinel-2"],
+    table: {
+      headers: ["Year", "Temperature (°C)"],
+      rows: [
+        ["2000", "26.7"],
+        ["2005", "27.4"],
+        ["2010", "27.9"],
+        ["2015", "29.0"],
+        ["2010 (Golinga)", "25.8"],
+        ["2015 (Golinga)", "26.8"],
+        ["2020", "30.8"],
+        ["2024", "31.5"]
+      ]
+    }
+  },
+  {
+    title: "Flood Hazard Assessment and Community Coping Strategies in Sagnarigu Municipality, Northern Ghana",
+    description: "This study assessed flood hazard risk and community coping strategies in Sagnarigu Municipality, Northern Ghana. The research used GIS and remote sensing to analyze physical flood-conditioning factors including elevation, slope, flow accumulation, soil moisture (NDMI), rainfall patterns and drainage networks.",
+    details: [
+      "Flat and gentle slopes cover 87.82% of the study area, creating conditions favorable to water accumulation",
+      "Flow accumulation concentrated along distinct drainage corridors in southern, south-eastern, south-western and central portions",
+      "Wet and very wet soil moisture zones cover only 1.96% but remain important where they coincide with low slopes and drainage pathways",
+      "Composite flood hazard map classified 10.22% of the area as high to very high hazard",
+      "Nyanshegu identified as the primary high-risk community",
+      "Moderate risk zones contain 47.42% of the selected community population (21,857 people)",
+      "High risk zones contain 18.44% (8,500 people)",
+      "88.3% of respondents had experienced flooding, with 53.3% experiencing it every year",
+      "Property damage (73.3%), loss of income (60.8%) and waterborne diseases (50.8%) were most common impacts",
+      "Coping measures: raising household items (75.8%), clearing drains (60.8%), temporary relocation (47.5%), sandbagging (37.5%)",
+      "Only 10% of respondents considered these measures very effective",
+      "Early warning awareness (26.7%) and preparedness training (24.2%) were low"
+    ],
+    tags: ["Flood Hazard","GIS","Remote Sensing","Ghana","Community Resilience","NADMO","Risk Assessment"]
+  },
+  {
+    title: "Snart-Eco Industrial Symbiosis",
+    description: "Development of eco-industrial park concepts integrating resource efficiency, circular economy, and sustainability principles for industrial clusters in Tanzania.",
+    details: [
+      "Mapping of industrial resource flows using GIS",
+      "Identification of symbiosis opportunities between industries",
+      "Life Cycle Assessment (LCA) of potential synergies",
+      "Policy recommendations for eco-industrial park development",
+      "Stakeholder engagement and capacity building"
+    ],
+    tags: ["Industrial Symbiosis","Circular Economy","LCA","Tanzania","Eco-Industrial Parks"]
+  },
+  {
+    title: "Water & Wastewater Systems Engineering",
+    description: "Engineering design and planning of municipal and industrial water supply and wastewater infrastructure for sustainable urban development.",
+    details: [
+      "Water supply network design and optimization",
+      "Wastewater treatment plant planning",
+      "Stormwater drainage system design",
+      "GIS-based infrastructure asset management",
+      "Environmental impact assessment for water projects"
+    ],
+    tags: ["Water Supply","Wastewater","Infrastructure","GIS","Environmental Engineering"]
+  }
+];
+
+const overlay = document.getElementById('projectOverlay');
+const overlayBody = document.getElementById('overlayBody');
+const closeBtn = document.getElementById('closeOverlay');
+
+function openProject(index) {
+  const p = projects[index];
+  if(!p) return;
+  
+  let html = `<h2><i class="fas fa-file-alt" style="color:#1d7874;"></i> ${p.title}</h2>`;
+  
+  // Summary
+  html += `<p style="font-size:1.1rem;background:#f0f6f9;padding:15px;border-radius:10px;border-left:4px solid #1d7874;"><strong>Summary:</strong> ${p.description}</p>`;
+  
+  // Images (only for project 1)
+  if(p.images && p.images.length > 0) {
+    html += `<h3 style="color:#0f4c5c;margin-top:20px;"><i class="fas fa-images"></i> Maps & Figures</h3>
+             <div class="overlay-img-grid">`;
+    p.images.forEach(img => {
+      html += `<figure>
+                <img src="${img.src}" alt="${img.caption}" loading="lazy" onerror="this.style.display='none'">
+                <figcaption>${img.caption}</figcaption>
+               </figure>`;
+    });
+    html += `</div>`;
+  }
+  
+  // Table (only for project 1)
+  if(p.table) {
+    html += `<h3 style="color:#0f4c5c;margin-top:20px;"><i class="fas fa-table"></i> Temperature Data</h3>
+             <table class="data-table">
+               <thead><tr><th>${p.table.headers[0]}</th><th>${p.table.headers[1]}</th></tr></thead>
+               <tbody>`;
+    p.table.rows.forEach(row => {
+      html += `<tr><td>${row[0]}</td><td>${row[1]}</td></tr>`;
+    });
+    html += `</tbody></table>`;
+  }
+  
+  // Details
+  html += `<h3 style="color:#0f4c5c;margin-top:20px;"><i class="fas fa-list-ul"></i> Key Findings</h3>
+           <ul style="list-style-type:disc;padding-left:25px;color:#2a3f4f;">`;
+  p.details.forEach(d => {
+    html += `<li style="margin-bottom:8px;">${d}</li>`;
+  });
+  html += `</ul>`;
+  
+  // Tags
+  html += `<div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:5px;">`;
+  p.tags.forEach(t => {
+    html += `<span class="badge">${t}</span>`;
+  });
+  html += `</div>`;
+  
+  overlayBody.innerHTML = html;
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeOverlayFn() {
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.project-card').forEach(c => c.addEventListener('click', function() {
+  openProject(parseInt(this.dataset.project));
+}));
+closeBtn.addEventListener('click', closeOverlayFn);
+overlay.addEventListener('click', function(e) { if(e.target === this) closeOverlayFn(); });
+document.addEventListener('keydown', function(e) { if(e.key === 'Escape') closeOverlayFn(); });
+</script>
+
+</body>
+</html>
