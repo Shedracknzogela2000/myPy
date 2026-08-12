@@ -27,11 +27,11 @@ h2{color:#0f4c5c;font-size:2rem;margin-bottom:1.5rem;border-left:5px solid #1d78
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
 .skills span{display:inline-block;background:#1d7874;color:#fff;padding:8px 16px;border-radius:30px;margin:5px;transition:all .3s ease;cursor:default;font-weight:500}
 .skills span:hover{transform:scale(1.08) rotate(-2deg);background:#0f4c5c}
-.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:1000;justify-content:center;align-items:center;padding:20px;animation:fadeIn .3s ease}
+.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:1000;justify-content:center;align-items:center;padding:20px;animation:none}
 .overlay.active{display:flex}
 .overlay-content{background:#fff;max-width:900px;max-height:85vh;overflow-y:auto;padding:40px;border-radius:24px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.3);animation:slideUp .4s ease-out}
 @keyframes slideUp{from{transform:translateY(50px);opacity:0}to{transform:translateY(0);opacity:1}}
-.overlay-content .close-btn{position:sticky;top:0;float:right;background:#e74c3c;color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:1.5rem;cursor:pointer;transition:all .3s ease;z-index:10}
+.overlay-content .close-btn{position:sticky;top:0;float:right;background:#e74c3c;color:#fff;border:none;border-radius:50%;width:40px;height:40px;font-size:1.5rem;cursor:pointer;transition:all .3s ease}
 .overlay-content .close-btn:hover{transform:rotate(90deg) scale(1.1)}
 .overlay-content h2{color:#0f4c5c;margin-top:0;border-left:5px solid #1d7874;padding-left:15px}
 .overlay-content p{color:#2a3f4f;line-height:1.8;margin:15px 0}
@@ -67,8 +67,8 @@ footer p{margin:5px 0}
 <section class="container">
   <h2><i class="fas fa-user-circle"></i> About Me</h2>
   <div class="card" style="cursor:default;">
-    <p><strong>Graduate Engineer (BSc. Municipal & Industrial Services Engineering, Ardhi University)</strong> with hands-on experience in industrial process control, biochar production, water and wastewater system design, construction supervision, and technical documentation. Strong background in sustainable infrastructure, carbon systems, and engineering design with practical exposure across manufacturing, utilities, and consulting environments.</p>
-    <p>I am the founder of <strong>Snart-Eco</strong>, focused on eco-industrial parks and industrial symbiosis, and <strong>PDEL</strong>, a construction and engineering company. My interests include circular economy systems, Life Cycle Assessment (LCA), climate resilience, carbon sequestration, and sustainable infrastructure development.</p>
+    <p><strong>Graduate Engineer (BSc. Municipal & Industrial Services Engineering, Ardhi University)</strong> with hands-on experience in industrial process control, biochar production, water and wastewater engineering, environmental assessments, and GIS-based analysis.</p>
+    <p>I am the founder of <strong>Snart-Eco</strong>, focused on eco-industrial parks and industrial symbiosis, and <strong>PDEL</strong>, a construction and engineering company. My interests include sustainability, circular economy, and community-based natural resource management.</p>
   </div>
 </section>
 
@@ -113,6 +113,11 @@ footer p{margin:5px 0}
       <p>Engineering design and planning of municipal and industrial water and wastewater infrastructure.</p>
       <span style="display:inline-block;margin-top:10px;color:#1d7874;font-weight:500;"><i class="fas fa-arrow-right"></i> Click to read more</span>
     </div>
+    <div class="card project-card" data-project="4">
+      <h3><i class="fas fa-seedling"></i> Assessing the Implementation of the Youth in Forestry Programme in Ghana</h3>
+      <p>This study assessed the effectiveness of Ghana's Youth in Forestry Programme (YFP) in the Yendi Forest District, evaluating its contributions to youth employment, skills development, and forest conservation over 2010–2025.</p>
+      <span style="display:inline-block;margin-top:10px;color:#1d7874;font-weight:500;"><i class="fas fa-arrow-right"></i> Click to read more</span>
+    </div>
   </div>
 </section>
 
@@ -145,7 +150,7 @@ footer p{margin:5px 0}
 const projects = [
   {
     title: "Land Use and Land Cover Change Dynamics and Their Influence on Surface Water Temperature and Chlorophyll‑a in Small Irrigation Reservoirs of Northern Ghana",
-    description: "This study assessed the influence of 25 years of land use and land cover (LULC) change on surface water temperature and chlorophyll‑a dynamics in the Golinga and Botanga irrigation reservoirs of northern Ghana, using an integrated approach combining Landsat and Sentinel‑2 satellite imagery, GIS, and statistical analysis.",
+    description: "This study assessed the influence of 25 years of land use and land cover (LULC) change on surface water temperature and chlorophyll‑a dynamics in the Golinga and Botanga irrigation reservoirs of Northern Ghana.",
     images: [
       { src: "Picture2.png", caption: "LULC Time-Series (2000-2025) – Bontanga Reservoir" },
       { src: "Picture1.png", caption: "Riparian Vegetation Change – 50m & 100m Buffers" },
@@ -180,7 +185,7 @@ const projects = [
   },
   {
     title: "Flood Hazard Assessment and Community Coping Strategies in Sagnarigu Municipality, Northern Ghana",
-    description: "This study assessed flood hazard risk and community coping strategies in Sagnarigu Municipality, Northern Ghana. The research used GIS and remote sensing to analyze physical flood-conditioning factors including elevation, slope, flow accumulation, soil moisture (NDMI), rainfall patterns and drainage networks.",
+    description: "This study assessed flood hazard risk and community coping strategies in Sagnarigu Municipality, Northern Ghana. The research used GIS and remote sensing to analyze physical flood-conditioning factors and community responses.",
     details: [
       "Flat and gentle slopes cover 87.82% of the study area, creating conditions favorable to water accumulation",
       "Flow accumulation concentrated along distinct drainage corridors in southern, south-eastern, south-western and central portions",
@@ -220,6 +225,24 @@ const projects = [
       "Environmental impact assessment for water projects"
     ],
     tags: ["Water Supply","Wastewater","Infrastructure","GIS","Environmental Engineering"]
+  },
+  {
+    title: "Assessing the Implementation of the Youth in Forestry Programme in Ghana: A Case Study of the Yendi Forest District",
+    description: "This study assessed the effectiveness of Ghana's Youth in Forestry Programme (YFP) in the Yendi Forest District, evaluating its contributions to youth employment, skills development, and forest conservation through household surveys and Landsat-based LULC analysis over a 16-year period (2010–2025).",
+    images: [
+      { src: "images/YFP_map.png", caption: "LULC Change Map (2010-2025) - Yendi Forest District" },
+      { src: "images/YFP_training.png", caption: "YFP Training & Nursery Activities" },
+      { src: "images/YFP_survey.png", caption: "Field Survey - Youth Beneficiaries" }
+    ],
+    details: [
+      "Objective: Evaluated achievement of YFP objectives, assessed socio-economic benefits to youth beneficiaries, identified implementation challenges, and analyzed the programme's impact on forest cover change in four forest reserves (Gushegu, Karaga, Mion, Saboba).",
+      "Methodology: Mixed-methods combining primary data from 81 youth beneficiaries and 10 Forestry Commission staff with Landsat 7 ETM+ and Landsat 8 OLI imagery analyzed in QGIS 3.28 using the Semi-Automatic Classification Plugin (SCP); supervised Minimum Distance classification achieved overall accuracies of 75%–88%.",
+      "Key Findings: YFP provided employment to 81% of youth beneficiaries and 100% skills acquisition in nursery management, forest protection, and firebreak construction; implementation challenges (delayed wages, inadequate logistics, drought, erratic rainfall, grazing) limited effectiveness.",
+      "Forest Cover Change: Substantial increases in Gushegu (+36.26%) and Karaga (+44.59%) reserves; slight decrease in Saboba (-1.47%) largely due to dam construction, indicating YFP alone cannot offset broader deforestation pressures.",
+      "Research Significance: Provides empirical evidence on youth-in-forestry programme performance in Ghana's Northern Savannah ecological zone, supporting policy formulation for sustainable forest management and youth employment.",
+      "Recommendations: Timely wages, improved logistics and PPE, structured career pathways for long-serving youth, post-programme support, integration with district land-use planning, and measures to increase female participation."
+    ],
+    tags: ["GIS","Remote Sensing","Land Use/Land Cover (LULC)","Landsat","Forest Conservation","Youth Employment","Natural Resource Management","Ghana","Random Forest Classification","Sustainability Assessment"]
   }
 ];
 
